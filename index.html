@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Health Trivia Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <h1>👁️ Eye Health Trivia Game</h1>
+                <h2>Juego de Trivia sobre Salud Ocular</h2>
+                
+                <div class="instructions">
+                    <div class="instruction-section">
+                        <h3>English Instructions:</h3>
+                        <p>Welcome to our eye health trivia game! Test your knowledge about cataracts, eye health, and vision care with 20 questions. Questions will alternate between English and Spanish. Choose the best answer from 4 options and get immediate feedback.</p>
+                    </div>
+                    
+                    <div class="instruction-section">
+                        <h3>Instrucciones en Español:</h3>
+                        <p>¡Bienvenido a nuestro juego de trivia sobre salud ocular! Pon a prueba tus conocimientos sobre cataratas, salud ocular y cuidado de la visión con 20 preguntas. Las preguntas alternarán entre inglés y español. Elige la mejor respuesta de 4 opciones y recibe retroalimentación inmediata.</p>
+                    </div>
+                </div>
+                
+                <button class="btn btn--primary btn--lg start-btn" onclick="startGame()">
+                    Start Game / Comenzar Juego
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="progress-info">
+                    <span class="question-counter">Question <span id="current-question">1</span> of 20</span>
+                    <span class="score">Score: <span id="current-score">0</span>/20</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="language-indicator" id="language-indicator">English</div>
+                <h2 class="question-text" id="question-text"></h2>
+                
+                <div class="options-container" id="options-container">
+                    <!-- Options will be populated dynamically -->
+                </div>
+            </div>
+
+            <div class="feedback-container" id="feedback-container">
+                <div class="feedback-content">
+                    <div class="feedback-result" id="feedback-result"></div>
+                    <div class="feedback-explanation" id="feedback-explanation"></div>
+                    <button class="btn btn--primary next-btn" id="next-btn" onclick="nextQuestion()">
+                        Next Question / Siguiente Pregunta
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <h1>🎉 Game Complete / Juego Completado</h1>
+                
+                <div class="final-score">
+                    <div class="score-circle">
+                        <span id="final-score">0</span>
+                        <span class="score-total">/20</span>
+                    </div>
+                </div>
+                
+                <div class="performance-summary">
+                    <h3 id="performance-title">Your Performance / Tu Rendimiento</h3>
+                    <p id="performance-message"></p>
+                    
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <span class="score-label">English Questions:</span>
+                            <span id="english-score">0/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Spanish Questions / Preguntas en Español:</span>
+                            <span id="spanish-score">0/10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn btn--primary btn--lg" onclick="restartGame()">
+                        Play Again / Jugar de Nuevo
+                    </button>
+                    <button class="btn btn--secondary btn--lg" onclick="reviewAnswers()">
+                        Review Answers / Revisar Respuestas
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="review-screen" class="screen">
+            <div class="review-content">
+                <h2>Answer Review / Revisión de Respuestas</h2>
+                <div id="review-list"></div>
+                <button class="btn btn--primary" onclick="showResults()">
+                    Back to Results / Volver a Resultados
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
